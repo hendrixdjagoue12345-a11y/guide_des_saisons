@@ -1,28 +1,76 @@
 # Le Gardien des saisons
 
-Ressources de départ pour construire une île flottante interactive avec Blender et Three.js.
+Une île flottante interactive réalisée avec Blender et Three.js. Choisissez
+une saison, explorez le diorama et réveillez les cristaux du sanctuaire.
 
-## Démarrer
+## Lancer l’application
 
-Installer Node.js 22 ou ultérieur, ouvrir ce dossier dans l’éditeur et lancer dans son terminal :
+Node.js 22 ou ultérieur est nécessaire.
 
 ```bash
 node server.mjs
 ```
 
-Ouvrir http://localhost:8080. Il n’y a aucune installation npm à effectuer. L’écran initial confirme que les ressources sont disponibles. Les parties du guide remplacent progressivement cet écran.
+Ouvrir http://localhost:8080. Toutes les ressources sont locales. Aucun `npm
+install` n’est nécessaire. Le navigateur doit pouvoir créer un contexte
+WebGL.
 
-## Ressources
+## Utilisation
 
-| Dossier | Contenu |
+| Action | Commande |
 | --- | --- |
-| assets | Scène assemblée et modèles GLB séparés, aperçu rendu dans Blender |
-| blender | Scène complète et fichiers Blender de chaque élément |
-| vendor | Three.js 0.160.1, GLTFLoader, OrbitControls et licence MIT |
-| fonts | Comfortaa et sa licence OFL |
+| Observer l’île | Glisser avec la souris ou un doigt |
+| Zoomer | Molette ou pincement tactile |
+| Changer de saison | Boutons Printemps, Été, Automne et Hiver |
+| Éveiller le sanctuaire | Cliquer sur ses pierres ou cristaux, ou utiliser le bouton |
+| Rotation automatique | Bouton Rotation auto |
+| Revenir à la présentation initiale | Réinitialiser |
 
-`assets/gardien.glb` est la scène utilisée dans l’application. Les fichiers GLB séparés partagent le même repère pour pouvoir se réassembler sans décalage. Les groupes `Tree`, `Shrine`, `Crystals` et `Snow` ainsi que les matériaux `Leaf_0` à `Leaf_4`, `Ground`, `Grass` et `Crystal` sont utilisés par le code.
+Les boutons sont accessibles avec Tab puis Entrée. Les animations respectent
+la préférence de réduction des mouvements. La neige apparaît en hiver et les
+matériaux changent progressivement de couleur.
 
-La neige est présente dans les exports mais masquée par l’application jusqu’au choix Hiver. Dans les fichiers Blender, elle est masquée à l’ouverture. Les matériaux sont fournis sans texture externe.
+## Structure
 
-Les modèles et le visuel Blender sont des créations originales fournies avec ce projet. Les bibliothèques et la police conservent leurs licences respectives.
+| Chemin | Rôle |
+| --- | --- |
+| src/scene.js | Rendu, caméra, commandes orbitales et lumières |
+| src/model.js | Chargement du GLB et préparation des matériaux |
+| src/seasons.js | Palettes et transitions |
+| src/effects.js | Particules, flottement et cristaux |
+| src/interaction.js | Sélection du sanctuaire avec un rayon |
+| src/interface.js | Boutons, reset et accessibilité |
+| src/main.js | Assemblage et état de chargement |
+| assets et blender | Modèles intégrés et sources éditables |
+
+## Vérifier
+
+```bash
+node --test tests/contrat-assets.mjs
+```
+
+Les tests contrôlent les groupes et matériaux des GLB, les quatre saisons et
+les exports séparés. Le contrôle du rendu s’effectue dans un navigateur
+compatible WebGL.
+
+## Parcours Git
+
+| Repère | Réalisation |
+| --- | --- |
+| partie-01 | Interface et structure du projet |
+| partie-02 | Scène et caméra |
+| partie-03 | Modèle Blender intégré |
+| partie-04 | Saisons et matériaux |
+| partie-05 | Particules et éveil |
+| partie-06 | Sélection du sanctuaire |
+| partie-07 | Interface complète et adaptation aux écrans |
+| partie-08 | Validation et finition |
+
+`git log --reverse --oneline` affiche la progression. `git show
+partie-04:src/main.js` lit un fichier à une étape précise. Pour essayer un
+état antérieur, créer un dossier de travail séparé avec `git worktree add
+../essai-saisons partie-04`.
+
+Les modèles et les visuels Blender sont des créations originales fournies
+avec le projet. Three.js 0.160.1 et les fichiers complémentaires conservent
+leur licence MIT. Comfortaa est fournie sous licence OFL.
