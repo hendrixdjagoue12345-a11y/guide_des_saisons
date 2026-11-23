@@ -210,3 +210,110 @@ footer p {
 body[data-state='error'] #world {
   background: url('./assets/apercu.webp') 66% 48% / auto 85% no-repeat;
 }
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 43px;
+  }
+  .intro {
+    top: 22%;
+  }
+  #story {
+    top: 18%;
+    width: 235px;
+  }
+  footer p:last-child {
+    display: none;
+  }
+}
+@media (max-width: 620px) {
+  header {
+    top: 18px;
+  }
+  .brand {
+    font-size: 21px;
+  }
+  .brand span {
+    font-size: 12px;
+  }
+  .intro {
+    top: 104px;
+    left: 6%;
+  }
+  .intro .eyebrow,
+  .intro > p:last-child {
+    display: none;
+  }
+  h1 {
+    font-size: 34px;
+  }
+  .seasons {
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+    bottom: 118px;
+  }
+  .seasons button {
+    font-size: 17px;
+    padding: 8px 10px;
+  }
+  .actions {
+    bottom: 56px;
+    gap: 0;
+  }
+  #wake {
+    padding: 9px 17px;
+  }
+  #rotate {
+    padding: 8px;
+    font-size: 14px;
+  }
+  footer {
+    bottom: 14px;
+    font-size: 11px;
+    justify-content: center;
+  }
+  #story {
+    top: auto;
+    right: 5%;
+    left: 5%;
+    bottom: 178px;
+    width: auto;
+    padding: 12px 18px;
+  }
+  #story p {
+    margin: 7px 0;
+  }
+  #story h2 {
+    font-size: 23px;
+  }
+  #status {
+    width: 88%;
+  }
+}
+@media (max-height: 560px) and (min-width: 621px) {
+  h1 {
+    font-size: 36px;
+  }
+  .intro {
+    top: 29%;
+  }
+  .intro .eyebrow {
+    display: none;
+  }
+  .intro > p:last-child {
+    font-size: 13px;
+  }
+  .seasons {
+    left: 61%;
+    bottom: 86px;
+  }
+  .actions {
+    left: 61%;
+    bottom: 30px;
+  }
+  footer {
+    display: none;
+  }
+}
+
