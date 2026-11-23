@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "repere": "Y vers le haut dans les GLB ; Z vers le haut dans Blender",
+  "entree": "assets/gardien.glb",
+  "groupes": [
+    "Island",
+    "Tree",
+    "Shrine",
+    "Crystals",
+    "Props",
+    "Snow"
+  ],
+  "materiaux": [
+    "Ground",
+    "Grass",
+    "Bark",
+    "Stone",
+    "Crystal",
+    "Snow",
+    "Leaf_0",
+    "Leaf_1",
+    "Leaf_2",
+    "Leaf_3",
+    "Leaf_4"
+  ],
+  "elements": {
+    "ile.glb": "Ile.blend",
+    "arbre.glb": "Arbre.blend",
+    "sanctuaire.glb": "Sanctuaire.blend",
+    "decors.glb": "Decors.blend",
+    "feuille.glb": "Feuille.blend"
+  }
+}

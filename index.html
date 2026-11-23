@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#211c36" />
+    <meta
+      name="description"
+      content="Explorez une île flottante et changez le cours des saisons."
+    />
+    <title>Le Gardien des saisons</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body data-season="automne">
+    <div id="world" aria-hidden="true"></div>
+    <header>
+      <a class="brand" href="./">Le Gardien<span>des saisons</span></a>
+      <button id="reset" class="quiet" disabled>Réinitialiser</button>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <p class="eyebrow">Une île hors du temps</p>
+        <h1 id="title">Un monde<br />à éveiller.</h1>
+        <p>Explorez l’île.<br />Changez le cours des saisons.</p>
+      </section>
+      <aside id="story" hidden aria-labelledby="story-title">
+        <p class="eyebrow">Le sanctuaire</p>
+        <h2 id="story-title">La mémoire de l’arbre</h2>
+        <p>
+          Les cristaux recueillent la lumière des saisons. Leur éclat
+          réveille les souvenirs de cette île.
+        </p>
+      </aside>
+      <nav class="seasons" aria-label="Choisir une saison">
+        <button data-season="printemps" aria-pressed="false" disabled>
+          Printemps
+        </button>
+        <button data-season="ete" aria-pressed="false" disabled>Été</button>
+        <button data-season="automne" aria-pressed="true" disabled>
+          Automne
+        </button>
+        <button data-season="hiver" aria-pressed="false" disabled>
+          Hiver
+        </button>
+      </nav>
+      <div class="actions">
+        <button id="wake" aria-pressed="false" disabled>
+          Éveiller l’arbre
+        </button>
+        <button id="rotate" class="quiet" aria-pressed="false" disabled>
+          Rotation auto
+        </button>
+      </div>
+    </main>
+    <footer>
+      <p>Glissez pour explorer · Molette pour zoomer</p>
+      <p>Cliquez sur les cristaux pour éveiller l’arbre</p>
+    </footer>
+    <p id="status" role="status">Préparation de l’île…</p>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
